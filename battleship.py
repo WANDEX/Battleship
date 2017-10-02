@@ -6,7 +6,7 @@ digits = list(digits)
 digits.append('10')
 
 
-def prnt_cells():  # dictionary's for col's
+def prnt_cells():  # col's dictionary's
     col_A = {'A':1, 'A':2, 'A':3, 'A':4, 'A':5, 'A':6, 'A':7, 'A':8, 'A':9, 'A':10}
     col_B = {'B':1, 'B':2, 'B':3, 'B':4, 'B':5, 'B':6, 'B':7, 'B':8, 'B':9, 'B':10}
     col_C = {'C':1, 'C':2, 'C':3, 'C':4, 'C':5, 'C':6, 'C':7, 'C':8, 'C':9, 'C':10}
@@ -17,7 +17,11 @@ def prnt_cells():  # dictionary's for col's
     col_H = {'H':1, 'H':2, 'H':3, 'H':4, 'H':5, 'H':6, 'H':7, 'H':8, 'H':9, 'H':10}
     col_I = {'I':1, 'I':2, 'I':3, 'I':4, 'I':5, 'I':6, 'I':7, 'I':8, 'I':9, 'I':10}
     col_J = {'J':1, 'J':2, 'J':3, 'J':4, 'J':5, 'J':6, 'J':7, 'J':8, 'J':9, 'J':10}
-    print(col_A.iteritems)
+    for col in sorted(set(col_A.items())):
+        print(col)
+    return col_A
+
+
 
 
 def game_board():
@@ -25,7 +29,7 @@ def game_board():
     for simbol in ascii_uppercase[:10]:  # iterate ["A"-"J"]
         print(simbol, end=" ")  # print ["A"-"J"]
     print()
-    prnt_cells()
+    print(prnt_cells())
     # for simbol in digits[1:]:
     #     print(simbol + "* * * * * * * * * *", sep=' ')
     #for y in range(10):
