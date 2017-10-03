@@ -22,7 +22,7 @@ def prnt_cells():  # col's dictionary's
 
     for col in sorted(set(col_A.items())):
         print(col)
-    return col_H
+    return col_A
 
 
 
