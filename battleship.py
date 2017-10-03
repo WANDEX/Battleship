@@ -19,7 +19,7 @@ def prnt_cells():  # col's dictionary's
     col_J = {'J':1, 'J':2, 'J':3, 'J':4, 'J':5, 'J':6, 'J':7, 'J':8, 'J':9, 'J':10}
     for col in sorted(set(col_A.items())):
         print(col)
-    return col_A
+    return col_H
 
 
 
