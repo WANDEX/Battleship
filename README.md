@@ -1,7 +1,7 @@
 # Battleship
 python battleship
-
-console version
-<b>TODO:</b>
-    1) <i>game_loop</i> function is a main loop of a game, where everything is happend!
-    2)
+\n
+\nconsole version
+\n<b>TODO:</b>
+\n\t    1) <i>game_loop</i> function is a main loop of a game, where everything is happend!
+\n\t    2)
