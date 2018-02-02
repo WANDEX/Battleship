@@ -7,25 +7,13 @@ digits.append('10')
 
 
 def prnt_cells():  # col's dictionary's
-    col_A = {
-        'A': 1,
-        'A': 2,
-        'A': 3,
-        'A': 4,
-        'A': 5,
-        'A': 6,
-        'A': 7,
-        'A': 8,
-        'A': 9,
-        'A': 10
-    }
-
-    for col in sorted(set(col_A.items())):
-        print(col)
-    return col_A
-
-
-
+    print("quack")
+    col_headers = ["col{}".format(i) for i in range(1, 4)]
+    print("{:^8} {:^8} {:^8}".format(*col_headers))
+    print(digits, sep='\n')
+    # for row in digits:
+    #     aligned_row = "{:^8} {:^8} {:^8}".format(*row)
+    #     print(aligned_row)
 
 def game_board():
     # print(ascii_uppercase[:10], end="\n")
