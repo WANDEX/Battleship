@@ -3,10 +3,7 @@ from random import randint
 
 
 turn = 0
-
-
 board = []  # list
-
 
 for x in range(10):
     board.append(list(repr(x + 1).rjust(2) + '|') + ["O"] * 10)
@@ -39,7 +36,6 @@ ship_row = random_row(board)
 ship_col = random_col(board)
 
 
-
 # Everything from here on should go in your for loop!
 # Be sure to indent four spaces!
 while turn < 5:
@@ -54,7 +50,7 @@ while turn < 5:
     guess_col = int(input("Guess Col: "))
 
     if guess_row == ship_row and guess_col == ship_col:
-        print("Congratulations! You sunk my battleship!")
+        print("Congratulations! You sunk my battleship!\n")
         board[guess_row - 1][guess_col + 2] = "X"
     else:
         guess_row = guess_row - 1
