@@ -1,40 +1,65 @@
 #!/usr/bin/env python
-from string import ascii_uppercase, digits
-#from numpy import matrixlib
+from random import randint
 
-digits = list(digits)
-digits.append('10')
+board = []  # list
 
+def append_board():
+    for x in range(10):
+        board.append(list(repr(x + 1).rjust(2) + '|') + ["O"] * 10)
 
-def prnt_cells():  # col's dictionary's
-    print("quack")
-    col_headers = ["col{}".format(i) for i in range(1, 4)]
-    print("{:^8} {:^8} {:^8}".format(*col_headers))
-    print(digits, sep='\n')
-    # for row in digits:
-    #     aligned_row = "{:^8} {:^8} {:^8}".format(*row)
-    #     print(aligned_row)
+def print_letters():
+    A = '\t'.expandtabs(6) + 'A'
+    letters = [A, 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+    for x in letters:
+        print(x, end=' ')
+    print('\n' + ' ' * 5 + "_" * 20)
 
-def game_board():
-    # print(ascii_uppercase[:10], end="\n")
-    for simbol in ascii_uppercase[:10]:  # iterate ["A"-"J"]
-        print(simbol, end=" ")  # print ["A"-"J"]
-    print()
-    print(prnt_cells())
-    # for simbol in digits[1:]:
-    #     print(simbol + "* * * * * * * * * *", sep=' ')
-    #for y in range(10):
-    #print(digits[1:])
+def print_board(board):
+    for row in board:
+        print(" ".join(row))
+    print('\n' + '#' * 80 + '\n')
 
+def random_row(board):
+    return randint(1, len(board))
 
-def game_loop():
-    screen_refresh_count = 1
-    print("screen refreshed | count: " + str(screen_refresh_count) + "\n")
+def random_col(board):
+    return randint(1, len(board))
 
-    game_board()
+def gamecycle():
+    turn = 0
+    append_board()
+    ship_row = random_row(board)
+    ship_col = random_col(board)
 
-    screen_refresh_count += 1
-    print("\nend of the game screen")  # end of function
+    while turn < 50:  # condition for game length
+        turn = turn + 1
+        print("THE TURN #: {0}".format(turn))
+        print("row: {0} col: {1}".format(ship_row, ship_col))
 
+        print_letters()
+        print_board(board)
 
-game_loop()
+        guess_row = int(input("Guess Row: "))
+        guess_col = int(input("Guess Col: "))
+
+        if ((guess_row < 1 or guess_row > 10) or
+            (guess_col < 1 or guess_col > 10)):
+            print("Oops, that's not even in the ocean.")
+        elif guess_row == ship_row and guess_col == ship_col:
+            print("Congratulations! You sunk my battleship!\n")
+            board[guess_row - 1][guess_col + 2] = "X"
+        else:
+            guess_row = guess_row - 1
+            guess_col = guess_col + 2
+            if ((board[guess_row][guess_col] == ".") or
+                (board[guess_row][guess_col] == "X")):
+                print("You guessed that one already.")
+            else:
+                print("You missed my battleship!")
+                board[guess_row][guess_col] = "."
+            print()
+
+def run():  # main
+    gamecycle()  # start game cycle
+
+run()
