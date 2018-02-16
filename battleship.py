@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from random import randint
+import ship
 
 board = []  # list
 
@@ -25,20 +26,54 @@ def random_row(board):
 def random_col(board):
     return randint(1, len(board))
 
-def generate_1x(row, col):
-    ship_row = row
-    ship_col = col
 
-    return ship_row, ship_col
+# def create_ships():
+#     s1 = ship.Ship(generate_position)
+#     s2 = ship.Ship(generate_position)
+#     s3 = ship.Ship(generate_position)
+#     s4 = ship.Ship(generate_position)
+#     fleet = [s1, s2, s3, s4]
+#     return fleet
+
+
+
+
+
+
+def ship_positioning(ship_object):
+    current_ship = ship.Ship(ship_object, random_row(board), random_col(board))
+    print(current_ship)
+    return(current_ship)
+
+
+def create_single_decker():
+    ship_positioning(ship.Ship.single_decker(ship.Ship))
+
+
+def create_ships():
+    create_single_decker()
+    print("SHIPS CREATED SUCCESSFULLY, THANKS LORD!!!")
+
+
+def fleet_positioning(ship_list):  # list of ships as fleet = [s1, s2, s3, s4]
+    for ship_item in ship_list:
+        ship_positioning(ship_item)
+        print("added {0} position".format(ship_item))
+
+
+
+
+
+
 
 def gamecycle():
     turn = 0
     append_board()
     # ship_row_1x = random_row(board)
     # ship_col_1x = random_col(board)
-    ship_row_1x, ship_col_1x = generate_1x(random_row(board), random_col(board))
+    ship_row_1x, ship_col_1x = random_row(board), random_col(board)
 
-    while turn < 50:  # condition for game length
+    while turn < 1:  # condition for game length
         turn = turn + 1
         print("THE TURN #: {0}".format(turn))
         print("row_1x: {0} col_1x: {1}".format(ship_row_1x, ship_col_1x))
@@ -68,5 +103,7 @@ def gamecycle():
 
 def run():  # main
     gamecycle()  # start game cycle
+
+    create_ships()
 
 run()

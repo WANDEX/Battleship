@@ -4,7 +4,10 @@ class Ship:
 
 
 
-    def __init__(self):
+    def __init__(self, ship_object, ship_row, ship_col):
+        self.object = ship_object
+        self.row = ship_row
+        self.col = ship_col
         #self.id = Ship.ship_id()
         #Ship.ship_id += 1
         #ship_id = id(self)
@@ -38,8 +41,8 @@ class Ship:
         return ship_name, ship_length, amount
 
 
-s1 = Ship()
-s2 = Ship()
-s3 = Ship()
-s4 = Ship()
-print(s4.four_decker(), s3.three_decker(), s2.two_decker(), s1.single_decker())
+# s1 = Ship(1, 1)
+# s2 = Ship(2, 2)
+# s3 = Ship(3, 3)
+# s4 = Ship(4, 4)
+# print(s4.four_decker(), s3.three_decker(), s2.two_decker(), s1.single_decker())
