@@ -47,10 +47,13 @@ def ship_positioning(ship_object):
 
 
 def create_single_decker():
-    ship_positioning(ship.Ship.single_decker(ship.Ship))
+    single_decker = ship_positioning(ship.Ship.single_decker(ship))
+    print(single_decker)
+    return(single_decker)
 
 
 def create_ships():
+    create_single_decker()
     create_single_decker()
     print("SHIPS CREATED SUCCESSFULLY, THANKS LORD!!!")
 
