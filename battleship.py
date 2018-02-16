@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from random import randint
 
 board = []  # list
@@ -25,16 +25,23 @@ def random_row(board):
 def random_col(board):
     return randint(1, len(board))
 
+def generate_1x(row, col):
+    ship_row = row
+    ship_col = col
+
+    return ship_row, ship_col
+
 def gamecycle():
     turn = 0
     append_board()
-    ship_row = random_row(board)
-    ship_col = random_col(board)
+    # ship_row_1x = random_row(board)
+    # ship_col_1x = random_col(board)
+    ship_row_1x, ship_col_1x = generate_1x(random_row(board), random_col(board))
 
     while turn < 50:  # condition for game length
         turn = turn + 1
         print("THE TURN #: {0}".format(turn))
-        print("row: {0} col: {1}".format(ship_row, ship_col))
+        print("row_1x: {0} col_1x: {1}".format(ship_row_1x, ship_col_1x))
 
         print_letters()
         print_board(board)
@@ -45,7 +52,7 @@ def gamecycle():
         if ((guess_row < 1 or guess_row > 10) or
             (guess_col < 1 or guess_col > 10)):
             print("Oops, that's not even in the ocean.")
-        elif guess_row == ship_row and guess_col == ship_col:
+        elif guess_row == ship_row_1x and guess_col == ship_col_1x:
             print("Congratulations! You sunk my battleship!\n")
             board[guess_row - 1][guess_col + 2] = "X"
         else:
