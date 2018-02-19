@@ -3,6 +3,7 @@ from random import randint
 import ship
 
 board = []  # list
+ship_list = []
 
 def append_board():
     for x in range(10):
@@ -40,28 +41,40 @@ def random_col(board):
 
 
 
-def ship_positioning(ship_object):
-    current_ship = ship.Ship(ship_object, random_row(board), random_col(board))
-    print(current_ship)
-    return(current_ship)
-
-
 def create_single_decker():
-    single_decker = ship_positioning(ship.Ship.single_decker(ship))
-    print(single_decker)
-    return(single_decker)
+    single_decker = ship.Ship(length=1, name='Submarine')
+    ship_list.append(single_decker)
+    return(single_decker.name)
+
+def create_two_decker():
+    two_decker = ship.Ship(length=2, name='Destroyer')
+    ship_list.append(two_decker)
+    return(two_decker.name)
+
+def create_three_decker():
+    three_decker = ship.Ship(length=3, name='Cruiser')
+    ship_list.append(three_decker)
+    return(three_decker.name)
+
+def create_four_decker():
+    four_decker = ship.Ship(length=4, name='Battleship')
+    ship_list.append(four_decker)
+    return(four_decker.name)
 
 
 def create_ships():
     create_single_decker()
     create_single_decker()
+    create_single_decker()
+    create_single_decker()
+    fleet_positioning(ship_list)
     print("SHIPS CREATED SUCCESSFULLY, THANKS LORD!!!")
 
 
 def fleet_positioning(ship_list):  # list of ships as fleet = [s1, s2, s3, s4]
     for ship_item in ship_list:
-        ship_positioning(ship_item)
-        print("added {0} position".format(ship_item))
+        ship_item.loc = [random_row(board), random_col(board)]
+        print("added {0} at position {1}".format(ship_item.name, ship_item.loc))
 
 
 
@@ -104,9 +117,9 @@ def gamecycle():
                 board[guess_row][guess_col] = "."
             print()
 
-def run():  # main
+def main():  # main
     gamecycle()  # start game cycle
 
     create_ships()
 
-run()
+main()
