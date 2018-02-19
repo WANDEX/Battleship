@@ -5,9 +5,11 @@ import ship
 board = []  # list
 ship_list = []
 
+
 def append_board():
     for x in range(10):
         board.append(list(repr(x + 1).rjust(2) + '|') + ["O"] * 10)
+
 
 def print_letters():
     A = '\t'.expandtabs(6) + 'A'
@@ -16,57 +18,30 @@ def print_letters():
         print(x, end=' ')
     print('\n' + ' ' * 5 + "_" * 20)
 
+
 def print_board(board):
     for row in board:
         print(" ".join(row))
     print('\n' + '#' * 80 + '\n')
 
+
 def random_row(board):
     return randint(1, len(board))
+
 
 def random_col(board):
     return randint(1, len(board))
 
 
-# def create_ships():
-#     s1 = ship.Ship(generate_position)
-#     s2 = ship.Ship(generate_position)
-#     s3 = ship.Ship(generate_position)
-#     s4 = ship.Ship(generate_position)
-#     fleet = [s1, s2, s3, s4]
-#     return fleet
-
-
-
-
-
-
-def create_single_decker():
-    single_decker = ship.Ship(length=1, name='Submarine')
-    ship_list.append(single_decker)
-    return(single_decker.name)
-
-def create_two_decker():
-    two_decker = ship.Ship(length=2, name='Destroyer')
-    ship_list.append(two_decker)
-    return(two_decker.name)
-
-def create_three_decker():
-    three_decker = ship.Ship(length=3, name='Cruiser')
-    ship_list.append(three_decker)
-    return(three_decker.name)
-
-def create_four_decker():
-    four_decker = ship.Ship(length=4, name='Battleship')
-    ship_list.append(four_decker)
-    return(four_decker.name)
+def create_ship(s, length, name):
+    s = ship.Ship(length, name)
+    ship_list.append(s)
+    return(s.name)
 
 
 def create_ships():
-    create_single_decker()
-    create_single_decker()
-    create_single_decker()
-    create_single_decker()
+    create_ship(s='s', length=1, name='Submarine')
+    create_ship(s='f', length=4, name='Battleship')
     fleet_positioning(ship_list)
     print("SHIPS CREATED SUCCESSFULLY, THANKS LORD!!!")
 
