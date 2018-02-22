@@ -25,16 +25,16 @@ def print_board(board):
     print('\n' + '#' * 80 + '\n')
 
 
-def random_row(board): #  избавиться т.к. есть более быстрый generate_position()
+def random_row(board):  # избавиться т.к. есть generate_position()
     return randint(1, len(board))
 
 
-def random_col(board): #  избавиться т.к. есть более быстрый generate_position()
+def random_col(board):  # избавиться т.к. есть generate_position()
     return randint(1, len(board))
 
 
 def generate_position(board):
-    position = tuple() # кортеж быстрее списка в 10 раз и является неизменным
+    position = tuple()  # кортеж быстрее списка в 10 раз и является неизменным
     position = randint(1, len(board)), randint(1, len(board))
     return position
 
@@ -58,11 +58,6 @@ def fleet_positioning(ship_list):  # list of ships as fleet = [s1, s2, s3, s4]
         print("added {0} at position {1}".format(ship_item.name, ship_item.loc))
 
 
-
-
-
-
-
 def gamecycle():
     turn = 0
     append_board()
@@ -84,6 +79,7 @@ def gamecycle():
         if ((guess_row < 1 or guess_row > 10) or
             (guess_col < 1 or guess_col > 10)):
             print("Oops, that's not even in the ocean.")
+
         elif guess_row == ship_row_1x and guess_col == ship_col_1x:
             print("Congratulations! You sunk my battleship!\n")
             board[guess_row - 1][guess_col + 2] = "X"
@@ -98,9 +94,11 @@ def gamecycle():
                 board[guess_row][guess_col] = "."
             print()
 
+
 def main():  # main
     gamecycle()  # start game cycle
 
     create_ships()
+
 
 main()
