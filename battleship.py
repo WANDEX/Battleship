@@ -27,15 +27,15 @@ def print_board(board):
     print('\n' + '#' * 80 + '\n')
 
 
-def random_row(board):  # избавиться т.к. есть generate_position()
+def random_row(board):  # избавиться т.к. есть gen_position()
     return randint(1, len(board))
 
 
-def random_col(board):  # избавиться т.к. есть generate_position()
+def random_col(board):  # избавиться т.к. есть gen_position()
     return randint(1, len(board))
 
 
-def generate_position(board):
+def gen_position(board):
     position = tuple()  # кортеж быстрее списка в 10 раз и является неизменным
     position = randint(1, len(board)), randint(1, len(board))
     return position
@@ -55,9 +55,9 @@ def create_ships():
 
 
 def fleet_positioning(ship_list):  # list of ships as fleet = [s1, s2, s3, s4]
-    for ship_item in ship_list:
-        ship_item.loc = generate_position(board)
-        print("added {0} at position {1}".format(ship_item.name, ship_item.loc))
+    for ship_i in ship_list:
+        ship_i.loc = gen_position(board)
+        print("added {0} at position {1}".format(ship_i.name, ship_i.loc))
 
 
 def gamecycle():
