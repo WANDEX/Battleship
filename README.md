@@ -9,10 +9,6 @@
 1. First game > type in your Username
 1. Serialyze Username and Scores into txt file
 1. SMTHNG
-1. SMTHNG
-1. SMTHNG
-1. SMTHNG
-1. SMTHNG
 1. Use functions to allow your game to have more features like rematches, statistics and more!
 1. Make Server and divide project on Server and Client parts
 1. Make your game a two-player game.
