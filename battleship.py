@@ -9,7 +9,7 @@ ship_list = []
 
 
 def gen_board(board):
-    pass
+    print(board)
 
 
 def gen_loc(board):
@@ -31,10 +31,9 @@ def fleet():
     print("SHIPS CREATED, THANKS LORD!!!")
 
 
-# def fleet_pos(ship_list):  # list of ships as fleet = [s1, s2, s3, s4]
-#     
-#         print("added {0} at position {1}".format(s.name, s.loc))
-
 def game():
     gen_board(board)
     # fleet()
+
+
+game()

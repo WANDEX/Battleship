@@ -3,7 +3,7 @@
 """Ship class."""
 
 
-class Ship:
+class Ship(object):
     def __init__(self, length, name, loc):
         self.length = length
         self.name = name
