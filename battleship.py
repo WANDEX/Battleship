@@ -3,9 +3,19 @@
 """Main module."""
 from random import randint
 import ship
+import player
+import board
 
-board = []
+# board = []
 ship_list = []
+
+
+def players():
+    name = input("name: ")
+    player = player(name)
+    player.board = board(name)
+    player.board.grid = gen_board(player)
+    player.board.ships = fleet()
 
 
 def gen_board(board):
