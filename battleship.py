@@ -12,7 +12,8 @@ ship_list = []
 
 
 def player():
-    name = input("name: ")
+    name = "PlayerName"
+    # name = input("name: ")
     player = players.Player(name)
     player.board = board.Board(name)
     player.board.grid = gen_board(player)
@@ -33,7 +34,7 @@ def gen_board(player):
                 tile.is_border = True
             grid.append(tile)
             tile_num += 1
-    print(str(grid))
+    print(grid)
     return grid
 
 
