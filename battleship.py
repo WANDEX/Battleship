@@ -34,7 +34,7 @@ def gen_board(player):
                 tile.is_border = True
             grid.append(tile)
             tile_num += 1
-    print(grid)
+    # print(tile)
     return grid
 
 
