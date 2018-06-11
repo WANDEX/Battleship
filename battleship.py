@@ -7,7 +7,6 @@ import players
 import board
 import tiles
 
-# board = []
 ship_list = []
 
 
@@ -19,7 +18,7 @@ def player():
     player.board.grid = gen_board(player)
     player.board.ships = fleet()
     print("setting ships for", player.name)
-    return player
+    return name
 
 
 def gen_board(player):
@@ -34,19 +33,21 @@ def gen_board(player):
                 tile.is_border = True
             grid.append(tile)
             tile_num += 1
-    # print(tile)
     return grid
 
 
-# def gen_loc(board):
-#     loc = randint(1, len(board)), randint(1, len(board))
-#     return loc
+def get_ships(player):
+    ships = [ship.Ship(4, "Battleship", gen_loc(player)),
+             ship.Ship(3, "Battleship", gen_loc(player)),
+             ship.Ship(2, "Battleship", gen_loc(player)),
+             ship.Ship(1, "Battleship", gen_loc(player))]
+    print(ships)
+    return ships
 
 
-# def instantiate_s(length, name, loc):
-#     s = ship.Ship(length, name, loc)
-#     ship_list.append(s)
-#     return(s)
+def gen_loc(player):
+    loc = randint(1, player.board.width), randint(1, player.board.height)
+    return loc
 
 
 def fleet():
@@ -59,7 +60,8 @@ def fleet():
 
 
 def game():
-    gen_board(player())
+    player = player()
+    gen_board(player)
     # fleet()
 
 
