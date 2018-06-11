@@ -18,7 +18,7 @@ def player():
     player.board.grid = gen_board(player)
     player.board.ships = fleet()
     print("setting ships for", player.name)
-    return name
+    # return name
 
 
 def gen_board(player):
@@ -38,9 +38,9 @@ def gen_board(player):
 
 def get_ships(player):
     ships = [ship.Ship(4, "Battleship", gen_loc(player)),
-             ship.Ship(3, "Battleship", gen_loc(player)),
-             ship.Ship(2, "Battleship", gen_loc(player)),
-             ship.Ship(1, "Battleship", gen_loc(player))]
+             ship.Ship(3, "Cruiser", gen_loc(player)),
+             ship.Ship(2, "Submarine", gen_loc(player)),
+             ship.Ship(1, "Destroyer", gen_loc(player))]
     print(ships)
     return ships
 
@@ -51,8 +51,6 @@ def gen_loc(player):
 
 
 def fleet():
-    # instantiate_s(length=1, name='Submarine', loc=gen_loc(board))
-    # instantiate_s(length=4, name='Battleship')
     for s in ship_list:
         print("added {0} at position {1}, his length is {2}".format(s.name, s.loc, s.length))
     print("SHIPS CREATED, THANKS LORD!!!")
@@ -60,8 +58,8 @@ def fleet():
 
 
 def game():
-    player = player()
-    gen_board(player)
+    p = player()
+    gen_board(p)
     # fleet()
 
 
