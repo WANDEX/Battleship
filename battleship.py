@@ -9,6 +9,7 @@ import tiles
 
 ship_list = []
 
+
 # not tested
 def get_player():
     name = "PlayerName"
