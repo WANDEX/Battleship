@@ -22,7 +22,7 @@ def get_player():
     brd.grid = get_board(player)
     brd.ships = get_ships(player)
     print("setting ships for", player.name)
-    return name
+    return player
 
 
 def get_board(player):
@@ -63,7 +63,6 @@ def gen_loc(player):
 def game():
     # get_player()
     p = players.Player(get_player())
-    get_board(p)
     # fleet()
 
 
