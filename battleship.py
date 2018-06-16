@@ -18,9 +18,9 @@ def get_player():
 
     brd = board.Board(player)
 
-    brd.owner = board.Board(name)
-    brd.grid = get_board(player)
-    brd.ships = get_ships(player)
+    # brd.owner = board.Board(name)
+    # brd.grid = get_board(name)
+    brd.ships = get_ships(name)
     print("setting ships for", player.name)
     return player
 
