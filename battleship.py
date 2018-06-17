@@ -10,7 +10,7 @@ import tiles
 ship_list = []
 
 
-# not tested at all
+# not tested at all fuck it
 def get_player():
     name = "PlayerName"
     # name = input("name: ")
