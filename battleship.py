@@ -10,29 +10,20 @@ import tiles
 ship_list = []
 
 
-# not tested at all fuck it all!
 def get_player():
-    name = "PlayerName"
-    # name = input("name: ")
-    player = players.Player(name)
-
-    brd = board.Board(player)
-
-    # brd.owner = board.Board(name)
-    # brd.grid = get_board(name)
-    brd.ships = get_ships(name)
-    print("setting ships for", player.name)
-    return player
+    name = input("what\'s your name?: ") or "Player"
+    return name
 
 
 def get_board(player):
     grid = []
     tile_num = 0
 
-    brd = board.Board(player)
 
-    width = brd.width
-    height = brd.height
+    # brd = board.Board(player)
+
+    width = player.board.width
+    height = player.board.height
 
     for y in range(width + 1):
         for x in range(height + 1):
@@ -60,10 +51,16 @@ def gen_loc(player):
     return loc
 
 
-def game():
-    # get_player()
-    p = players.Player(get_player())
-    # fleet()
+def run():
+    p1_name = get_player()
+    p1 = players.Player(p1_name)
+    p1.board = board.Board(p1_name)
+    p1.board.grid = get_board(p1)
+    print ("setting ships for", p1.name)
+    # set_ships(p1.board)
+
+    p1_board = get_board(p1)
+    print(p1_board)
 
 
-game()
+run()
