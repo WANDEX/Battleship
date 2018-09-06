@@ -4,7 +4,7 @@
 
 
 class Ship(object):
-    def __init__(self, length, name, loc):
+    def __init__(self, length, name):
         self.length = length
         self.name = name
         self.loc = []

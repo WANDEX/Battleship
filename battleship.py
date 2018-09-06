@@ -6,6 +6,7 @@ import ship
 import players
 import board
 import tiles
+import helper
 
 ship_list = []
 
@@ -15,16 +16,18 @@ def get_player():
     return name
 
 
+def gen_loc(player):
+    brd = board.Board(player)
+    loc = randint(1, brd.width), randint(1, brd.height)
+    return loc
+
+
 def get_board(player):
     grid = []
     tile_num = 0
-
-
     # brd = board.Board(player)
-
     width = player.board.width
     height = player.board.height
-
     for y in range(width + 1):
         for x in range(height + 1):
             tile = tiles.Tile(tile_num, x, y)
@@ -36,19 +39,24 @@ def get_board(player):
 
 
 def get_ships(player):
-    ships = [ship.Ship(4, "Battleship", gen_loc(player)),
-             ship.Ship(3, "Cruiser", gen_loc(player)),
-             ship.Ship(2, "Submarine", gen_loc(player)),
-             ship.Ship(1, "Destroyer", gen_loc(player))]
+    ships = [ship.Ship(4, "Battleship"),
+             ship.Ship(3, "Cruiser"),
+             ship.Ship(2, "Submarine"),
+             ship.Ship(1, "Destroyer")]
     print(ships)
     return ships
 
 
-def gen_loc(player):
-    brd = board.Board(player)
+def set_ships(board):
+    for i in range(len(board.ships)):
+        helper.Helper().set_ships(board.ships[i], board.grid)
 
-    loc = randint(1, brd.width), randint(1, brd.height)
-    return loc
+
+def play(player):
+    x = input("row: ")
+    y = input("col: ")
+    helper.Helper().tile_check(player, x, y)
+    exit()
 
 
 def run():
@@ -56,11 +64,11 @@ def run():
     p1 = players.Player(p1_name)
     p1.board = board.Board(p1_name)
     p1.board.grid = get_board(p1)
-    print ("setting ships for", p1.name)
-    # set_ships(p1.board)
-
-    p1_board = get_board(p1)
-    print(p1_board)
+    p1.board.ships = get_ships(p1)
+    print("setting ships for", p1.name)
+    set_ships(p1.board)
+    print("play phase.")
+    play(p1)
 
 
 run()
