@@ -34,6 +34,6 @@ class Helper(object):
                     ship.loc.append(grid[node + (i * 12)])
                 print("your", ship.name, "placed")
 
-    def tile_check(self, player, x, y): # TODO <----------
+    def tile_check(self, player, x, y):  # TODO <----------
         print(player)
         exit()

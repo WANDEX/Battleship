@@ -52,6 +52,19 @@ def set_ships(board):
         helper.Helper().set_ships(board.ships[i], board.grid)
 
 
+def draw_grid(grid):
+    tile = tiles.Tile()
+    t_node = "u"
+    for node in grid:
+        if tile.bombed:
+            t_node = "."
+        elif tile.has_ship:
+            t_node = "s"
+        else:
+            t_node = "~"
+        print(t_node)
+
+
 def play(player):
     x = input("row: ")
     y = input("col: ")
@@ -60,7 +73,8 @@ def play(player):
 
 
 def run():
-    p1_name = get_player()
+    # p1_name = get_player()
+    p1_name = "DebugTestPlayer"
     p1 = players.Player(p1_name)
     p1.board = board.Board(p1_name)
     p1.board.grid = get_board(p1)
@@ -68,7 +82,11 @@ def run():
     print("setting ships for", p1.name)
     set_ships(p1.board)
     print("play phase.")
-    play(p1)
+
+    # print(helper.Helper())
+    draw_grid(p1.board.grid)
+
+    # play(p1)
 
 
 run()
